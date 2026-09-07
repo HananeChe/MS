@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS iAgency — Visuels IA, identité de marque et e-commerce</title>
+<meta name="description" content="Agence créative à Argenteuil : visuels générés par IA, identité de marque en packshot et boutiques e-commerce pour les petites entreprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg-alt: #131110;
+    --card: #1C1917;
+    --cream: #FAF8F2;
+    --coral: #DE7A5C;
+    --coral-light: #E8916B;
+    --coral-deep: #C96745;
+    --muted: #9C948C;
+    --border: rgba(250, 248, 242, 0.10);
+    --border-strong: rgba(250, 248, 242, 0.20);
+    --container: 1140px;
+    --font-display: 'Fredoka', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--cream); font-family: var(--font-body);
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; }
+  .container { max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+  section { padding-block: clamp(4rem, 8vw, 7rem); }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; background: var(--coral); color: var(--bg);
+    padding: 0.75rem 1.25rem; font-weight: 600; z-index: 200; border-radius: 0 0 6px 0;
+  }
+  .skip-link:focus { left: 0; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--coral-light); outline-offset: 3px; border-radius: 2px; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding-block: 1.1rem;
+    transition: background-color 0.3s ease, padding-block 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background-color: rgba(10, 10, 10, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding-block: 0.75rem; border-bottom-color: var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .logo-img { height: 38px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: clamp(1.25rem, 3vw, 2.25rem); }
+  .nav-links a:not(.btn) {
+    font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted); transition: color 0.2s ease;
+  }
+  .nav-links a:not(.btn):hover { color: var(--cream); }
+  .nav-toggle { display: none; background: none; border: none; color: var(--cream); cursor: pointer; padding: 0.4rem; }
+  .nav-toggle svg { width: 24px; height: 24px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem;
+    font-family: var(--font-body); font-size: 1rem; font-weight: 600; border-radius: 999px; cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--cream); color: var(--bg); border: 1.5px solid var(--cream); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgba(250, 248, 242, 0.4); }
+  .btn-outline { background: transparent; color: var(--cream); border: 1.5px solid var(--border-strong); }
+  .btn-outline:hover { border-color: var(--cream); }
+  .btn-small { padding: 0.55rem 1.25rem; font-size: 0.875rem; }
+
+  #hero { padding-top: clamp(7rem, 14vw, 10rem); padding-bottom: clamp(4rem, 8vw, 6rem); scroll-margin-top: 5.5rem; }
+  .hero-inner { max-width: 800px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 1.5rem; display: block;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.75rem); letter-spacing: -0.01em;
+  }
+  .hero-content h1 .fill-coral {
+    background: linear-gradient(100deg, var(--coral-light), var(--coral-deep));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-content p { margin-top: 1.5rem; max-width: 50ch; color: var(--muted); font-size: clamp(1rem, 0.4vw + 0.9rem, 1.15rem); }
+  .hero-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .hero-caption {
+    margin-top: 1.75rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-caption::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+
+  .hero-content > * { opacity: 0; transform: translateY(14px); animation: heroReveal 0.7s ease forwards; }
+  .eyebrow { animation-delay: 0s; }
+  .hero-content h1 { animation-delay: 0.1s; }
+  .hero-content p { animation-delay: 0.25s; }
+  .hero-actions { animation-delay: 0.4s; }
+  .hero-caption { animation-delay: 0.5s; }
+  @keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
+
+  #services { background: var(--bg-alt); scroll-margin-top: 5.5rem; }
+  #services h2 { font-size: clamp(1.85rem, 2.4vw + 1rem, 2.65rem); margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .service-list { border-top: 1px solid var(--border); }
+  .service-row { display: grid; grid-template-columns: 48px 1fr; gap: 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid var(--border); }
+  .service-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--coral); }
+  .service-icon svg { width: 26px; height: 26px; }
+  .service-row h3 { font-size: 1.2rem; margin-bottom: 0.4rem; font-weight: 600; }
+  .service-row p { color: var(--muted); max-width: 60ch; }
+
+  #video { scroll-margin-top: 5.5rem; }
+  #video h2 { font-size: clamp(1.85rem, 2.4vw + 1rem, 2.65rem); text-align: center; margin-bottom: 0.75rem; }
+  .video-intro { text-align: center; color: var(--muted); max-width: 52ch; margin-inline: auto; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-block: 2.5rem; }
+  .video-embed {
+    aspect-ratio: 16 / 9; max-width: 860px; margin-inline: auto; border-radius: 18px;
+    background: linear-gradient(135deg, var(--card), var(--bg)); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .video-play {
+    width: 72px; height: 72px; border-radius: 50%; background: var(--cream);
+    display: flex; align-items: center; justify-content: center; color: var(--bg);
+  }
+  .video-play svg { width: 26px; height: 26px; margin-left: 3px; }
+
+  #processus { background: var(--bg-alt); scroll-margin-top: 5.5rem; }
+  #processus h2 { font-size: clamp(1.85rem, 2.4vw + 1rem, 2.65rem); margin-bottom: 0.75rem; }
+  .processus-intro { color: var(--muted); max-width: 52ch; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 21px; left: 0; right: 0; height: 1px; background: var(--border-strong); }
+  .process-step { position: relative; }
+  .process-num {
+    width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--coral); color: var(--coral);
+    font-family: var(--font-display); font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem; background: var(--bg-alt); position: relative; z-index: 2;
+  }
+  .process-step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .process-step p { color: var(--muted); font-size: 0.95rem; }
+
+  #etudes-de-cas { scroll-margin-top: 5.5rem; }
+  #etudes-de-cas h2 { font-size: clamp(1.85rem, 2.4vw + 1rem, 2.65rem); margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .case-study { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(2rem, 5vw, 4rem); padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .case-study:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .case-visual, .case-text { flex: 1 1 380px; }
+  .case-visual { aspect-ratio: 4 / 3; border-radius: 12px; background-size: cover; background-position: center; background-color: var(--card); }
+  .case-visual.yumicha { background-image: url('assets/img/yumicha-cover.jpg'), linear-gradient(135deg, var(--card), var(--coral) 140%); }
+  .case-visual.atelier-noor { background-image: url('assets/img/atelier-noor-cover.jpg'), linear-gradient(135deg, var(--card), var(--coral-deep) 160%); }
+  .case-study.reverse .case-visual { order: 2; }
+  .case-study.reverse .case-text { order: 1; }
+  .case-text h3 { font-size: 1.65rem; margin-bottom: 0.85rem; }
+  .case-text p { color: var(--muted); max-width: 48ch; margin-bottom: 1.25rem; }
+  .case-link { font-weight: 600; color: var(--coral-light); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+  #contact { background: var(--bg-alt); scroll-margin-top: 5.5rem; }
+  .contact-inner { max-width: 640px; }
+  #contact h2 { font-size: clamp(1.85rem, 2.4vw + 1rem, 2.65rem); margin-bottom: 1rem; }
+  .contact-inner > p { color: var(--muted); margin-bottom: 2rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 1.75rem; }
+  .form-row { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-row label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .form-row input, .form-row textarea {
+    background: var(--card); border: 1px solid var(--border-strong); border-radius: 10px;
+    padding: 0.75rem 1rem; color: var(--cream); font-family: var(--font-body); font-size: 1rem;
+  }
+  .form-row input:focus, .form-row textarea:focus { outline: 2px solid var(--coral-light); outline-offset: 2px; border-color: var(--coral-light); }
+  .form-row textarea { resize: vertical; }
+  .contact-alt { color: var(--muted); font-size: 0.95rem; }
+  .contact-email { color: var(--coral-light); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+
+  footer { padding-block: 2.5rem; text-align: center; color: var(--muted); font-size: 0.875rem; border-top: 1px solid var(--border); }
+  .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+  .social-link { color: var(--coral-light); font-weight: 600; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+  @media (max-width: 780px) {
+    .nav-links {
+      position: fixed; top: 0; right: 0; height: 100vh; width: min(78vw, 320px); background: var(--bg-alt);
+      flex-direction: column; align-items: flex-start; justify-content: center; gap: 2rem;
+      padding-inline: 2.25rem; transform: translateX(100%); transition: transform 0.3s ease; border-left: 1px solid var(--border);
+    }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a:not(.btn) { font-size: 0.95rem; }
+    .nav-toggle { display: inline-flex; }
+    .case-study .case-visual, .case-study.reverse .case-visual { order: 1; }
+    .case-study .case-text, .case-study.reverse .case-text { order: 2; }
+    .process-steps { grid-template-columns: 1fr; gap: 2.5rem; }
+    .process-steps::before { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-content > * { animation: none; opacity: 1; transform: none; }
+    .btn-primary:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <header id="site-header">
+    <div class="container nav-inner">
+      <a href="#hero">
+        <picture>
+          <source srcset="assets/img/logo.webp" type="image/webp">
+          <img src="assets/img/logo.png" alt="MS iAgency" class="logo-img">
+        </picture>
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#services">Services</a>
+        <a href="#processus">Processus</a>
+        <a href="#etudes-de-cas">Études de cas</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary btn-small">Nous contacter</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow">Agence IA — visuels, marque, e-commerce</span>
+          <h1>Votre vision, <span class="fill-coral">notre IA</span>.</h1>
+          <p>Visuels générés par IA, identité de marque et boutiques e-commerce : nous aidons les petites entreprises à avoir une image à la hauteur de leur travail.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Commencer une collaboration</a>
+            <a href="#processus" class="btn btn-outline">Le processus</a>
+          </div>
+          <div class="hero-caption">Un message suffit pour démarrer la discussion</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Nos trois expertises</h2>
+        <div class="service-list">
+          <div class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h3>Visuels générés par IA</h3>
+              <p>Photos produit, mises en scène et avatars sur mesure, sans budget shooting photo.</p>
+            </div>
+          </div>
+          <div class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div>
+              <h3>Identité de marque en packshot</h3>
+              <p>Logo, palette et packshots professionnels : une identité visuelle forte, du logo jusqu'à vos photos produit.</p>
+            </div>
+          </div>
+          <div class="service-row">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+            <div>
+              <h3>Site web et e-commerce</h3>
+              <p>Boutique Shopify ou site vitrine, pensés pour convertir vos visiteurs en clients, pas seulement pour être beaux.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="container">
+        <h2>Notre savoir-faire, en vidéo</h2>
+        <p class="video-intro">Quelques minutes pour voir concrètement ce que nous pouvons faire pour votre marque.</p>
+
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">Commencer une collaboration</a>
+          <a href="#processus" class="btn btn-outline">Le processus</a>
+        </div>
+
+        <!-- TODO(Hanane) : remplacer ce bloc par ta vraie vidéo, soit :
+             1) un <video controls src="assets/video/presentation.mp4"></video>
+             2) un <iframe> YouTube/Vimeo (aspect-ratio 16/9 déjà prévu par .video-embed)
+        -->
+        <div class="video-embed" role="img" aria-label="Vidéo de présentation de MS iAgency, à venir">
+          <div class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">Commencer une collaboration</a>
+          <a href="#processus" class="btn btn-outline">Le processus</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="processus">
+      <div class="container">
+        <h2>Le processus</h2>
+        <!-- TODO(Hanane) : ces 4 étapes sont une proposition de départ, à valider/ajuster avec toi -->
+        <p class="processus-intro">Quatre étapes, de la prise de contact à la livraison.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <h3>Prise de contact</h3>
+            <p>Vous nous présentez votre projet via le formulaire de contact.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <h3>Proposition</h3>
+            <p>Nous revenons vers vous avec un périmètre clair, un délai et un tarif.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <h3>Création</h3>
+            <p>Nous produisons vos visuels, votre site ou vos contenus, avec des points d'étape réguliers.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-num">4</div>
+            <h3>Livraison</h3>
+            <p>Vous recevez vos fichiers finaux, avec une ou deux rondes de retouches incluses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="etudes-de-cas">
+      <div class="container">
+        <h2>Études de cas</h2>
+        <div class="case-study">
+          <div class="case-visual yumicha" role="img" aria-label="Aperçu de la marque Yumicha"></div>
+          <div class="case-text">
+            <h3>Yumicha</h3>
+            <p>Notre propre marque e-commerce de kits de cérémonie du matcha, lancée sur Shopify et Amazon FBA. Nous y gérons les fiches produits optimisées pour le référencement, le contenu généré par IA pour les réseaux sociaux, un blog hebdomadaire et un ebook multilingue disponible en sept langues.</p>
+            <a href="https://yumichakit.com" class="case-link" target="_blank" rel="noopener">Voir la boutique</a>
+          </div>
+        </div>
+        <div class="case-study reverse">
+          <div class="case-visual atelier-noor" role="img" aria-label="Aperçu de la marque L'Atelier de Noor"></div>
+          <div class="case-text">
+            <h3>L'Atelier de Noor</h3>
+            <p>Nous avons assuré la direction créative d'une marque de charcuterie et de snacks surgelés premium : mises en scène produit soignées et série de vidéos courtes pour TikTok et Instagram, mêlant animation 3D, prises de vue réalistes et formats plus décalés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-inner">
+        <h2>Discutons de votre projet</h2>
+        <p>Une question, un projet en tête, ou juste envie d'échanger ? Écrivez-nous directement.</p>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <label for="cf-name">Nom</label>
+            <input type="text" id="cf-name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer le message</button>
+        </form>
+
+        <!-- TODO(Hanane) : remplace par ta vraie adresse email avant de publier (2 endroits : ici et dans le JS du formulaire plus bas) -->
+        <p class="contact-alt">Vous préférez écrire directement ? <a href="mailto:contact@ms-iagency.fr" class="contact-email">contact@ms-iagency.fr</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <!-- TODO(Hanane) : remplace # par le(s) vrai(s) lien(s) vers vos réseaux -->
+      <a href="#" class="social-link">Retrouvez-nous sur nos réseaux</a>
+      <p>© 2026 MS iAgency — Argenteuil, Île-de-France</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const header = document.getElementById('site-header');
+      const toggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      function onScroll() {
+        if (window.scrollY > 40) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      function closeMenu() {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+      function openMenu() {
+        navLinks.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Fermer le menu');
+      }
+      toggle.addEventListener('click', function () {
+        navLinks.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Formulaire de contact : pas de backend sur GitHub Pages, donc on ouvre
+      // le client email de la personne avec le message pré-rempli.
+      // TODO(Hanane) : adresse à synchroniser avec celle du lien juste en dessous du formulaire.
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nameVal = form.name.value;
+          const emailVal = form.email.value;
+          const messageVal = form.message.value;
+          const subject = encodeURIComponent('Nouveau projet — ' + nameVal);
+          const body = encodeURIComponent('De : ' + nameVal + ' (' + emailVal + ')\n\n' + messageVal);
+          window.location.href = 'mailto:contact@ms-iagency.fr?subject=' + subject + '&body=' + body;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

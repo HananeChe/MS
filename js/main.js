@@ -229,6 +229,16 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+/* ============ Téléphone : décrocher ============ */
+const acceptBtn = $("#acceptBtn"), callChoice = $("#callChoice");
+acceptBtn.addEventListener("click", () => {
+  const open = callChoice.hidden;
+  callChoice.hidden = !open;
+  acceptBtn.closest(".phone-screen").classList.toggle("calling", open);
+  acceptBtn.setAttribute("aria-expanded", String(open));
+  acceptBtn.textContent = open ? "Raccrocher" : "Décrocher · Lancer une mission";
+});
+
 /* ============ Monde 3D ============ */
 const world = (() => {
   const canvas = $("#world");

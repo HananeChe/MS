@@ -202,7 +202,15 @@ kbd{font-family:var(--ui);font-weight:700;background:var(--paper);color:var(--in
 .app span:last-child{min-width:0;overflow-wrap:anywhere}
 .app-ic{flex:none;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-weight:700;font-size:16px}
 .ic-mail{background:#4fa3e0}.ic-insta{background:linear-gradient(135deg,#f5c542,#ff4f7e,#8b3dff)}.ic-tt{background:#111;border:1px solid #444}
-.accept{margin-top:auto;text-align:center;text-decoration:none;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.05em;
+.phone-screen.calling .app{display:none}
+.call-choice{margin-top:auto;display:flex;flex-direction:column;gap:8px;animation:fadein .25s ease}
+.call-choice-title{text-align:center;font-weight:700;font-size:15px}
+.choice{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:16px;padding:12px;border-radius:14px;background:var(--paper);color:var(--ink)}
+.choice:hover{background:var(--gold)}
+.choice-insta,.choice-insta:hover{background:linear-gradient(135deg,#f5c542,#ff4f7e,#8b3dff);color:#fff}
+.choice-insta:hover{filter:brightness(1.1)}
+.call-choice:not([hidden])+.accept{margin-top:0;background:#e5484d;color:#fff}
+.accept{margin-top:auto;cursor:pointer;text-align:center;text-decoration:none;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.05em;
   padding:14px;border-radius:30px;background:var(--hp);color:var(--ink)}
 
 /* lecteur */

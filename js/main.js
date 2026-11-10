@@ -5,7 +5,8 @@ const MISSIONS = [
   { id: "about",     n: "01", title: "Qui est Hanane ?", tab: "Histoire",     sub: "Mon histoire",           glyph: "H",  color: "#f5c542", x: 62,  y: 62  },
   { id: "animation", n: "02", title: "Animation IA",     tab: "Animation IA", sub: "Vidéos animées 2D & 3D", glyph: "3D", color: "#ff4f7e", x: 150, y: 58  },
   { id: "ads",       n: "03", title: "Ads & UGC IA",     tab: "Ads & UGC IA", sub: "Pubs & vidéos UGC",      glyph: "AD", color: "#4fa3e0", x: 146, y: 146 },
-  { id: "contact",   n: "04", title: "Contact",          tab: "Contact",      sub: "Lancer une mission",     glyph: "☎",  color: "#5fbf5f", x: 58,  y: 148 },
+  { id: "tarifs",    n: "04", title: "Tarifs",           tab: "Tarifs",       sub: "Vidéos & packs images",  glyph: "€",  color: "#ff8a3d", x: 108, y: 36  },
+  { id: "contact",   n: "05", title: "Contact",          tab: "Contact",      sub: "Lancer une mission",     glyph: "☎",  color: "#5fbf5f", x: 58,  y: 148 },
 ];
 
 const VIDEOS = {

@@ -184,6 +184,31 @@ kbd{font-family:var(--ui);font-weight:700;background:var(--paper);color:var(--in
 .card-title{font-family:var(--title);font-size:24px;text-transform:uppercase;line-height:1.05}
 .card-client{font-size:16px;color:var(--muted);margin-top:2px}
 
+/* tarifs */
+.tarifs-body>*{max-width:860px}
+.price-title{font-family:var(--title);font-weight:400;font-size:clamp(26px,3.4vw,38px);text-transform:uppercase;color:var(--gold);
+  text-shadow:2px 2px 0 var(--ink);margin-top:34px}
+.panel-lead+.price-title{margin-top:0}
+.price-sub{font-size:19px;color:var(--muted);margin:4px 0 14px}
+.price-scroll{overflow-x:auto;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.price-table{width:100%;min-width:420px;border-collapse:collapse;font-size:20px}
+.price-table thead th{font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  text-align:right;padding:12px 16px;border-bottom:1px solid var(--line)}
+.price-table thead th:first-child,.price-table tbody th{text-align:left}
+.price-table tbody th{font-weight:600;padding:14px 16px}
+.price-table td{text-align:right;padding:14px 16px;font-family:var(--title);font-size:26px;white-space:nowrap}
+.price-table tbody tr+tr>*{border-top:1px solid var(--line)}
+.price-note{font-size:18px;font-weight:600;margin-top:10px;padding:8px 12px;border-left:4px solid var(--gold);background:rgba(13,9,18,.55)}
+.clauses{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:36px 0 30px}
+.clause{padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-left:4px solid var(--muted)}
+.clause-in{border-left-color:var(--gold)}
+.clause-out .label{color:var(--muted)}
+.clause ul{list-style:none;display:grid;gap:8px;margin-top:10px;font-size:18px;line-height:1.35}
+.clause li{position:relative;padding-left:18px}
+.clause li::before{position:absolute;left:0;font-weight:700}
+.clause-in li::before{content:"+";color:var(--gold)}
+.clause-out li::before{content:"–";color:var(--muted)}
+
 /* contact */
 .contact-body{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:1100px}
 .phone{width:min(340px,100%);aspect-ratio:9/18.5;background:#0b0b0e;border-radius:40px;padding:14px;border:3px solid #2b2b33;
@@ -222,7 +247,7 @@ kbd{font-family:var(--ui);font-weight:700;background:var(--paper);color:var(--in
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .about-body,.contact-body,.bigmap-body{grid-template-columns:1fr}
+  .about-body,.contact-body,.bigmap-body,.clauses{grid-template-columns:1fr}
   .about-card{position:static;display:grid;grid-template-columns:140px 1fr}
   .about-card img{height:100%;min-height:200px;grid-row:span 2}
   .arsenal{grid-column:2}
@@ -258,6 +283,11 @@ kbd{font-family:var(--ui);font-weight:700;background:var(--paper);color:var(--in
   .card-title{font-size:19px}
   .card-play{width:48px;height:48px}
   .phone{width:min(320px,100%)}
+  .price-table{min-width:0;font-size:17px}
+  .price-table thead th{font-size:12px;letter-spacing:.08em;padding:10px 8px}
+  .price-table tbody th,.price-table td{padding:12px 8px}
+  .price-table td{font-size:21px}
+  .price-sub,.clause ul{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}

@@ -15,6 +15,8 @@ const VIDEOS = {
     { file: "nems-3d",            title: "Pourquoi choisir ?", client: "L'Atelier de Noor", tags: ["3D", "45 s"] },
     { file: "mamie-3d",           title: "Mamie en panique",   client: "Pub animée",        tags: ["3D", "34 s"] },
     { file: "nems-client-furieux",title: "Le client furieux",  client: "L'Atelier de Noor", tags: ["2D cartoon", "36 s"] },
+    { file: "medicube-maman",     title: "Maman depuis 2 mois", client: "Pub non officielle · Medicube", tags: ["3D", "39 s"] },
+    { file: "reconciliation-voiture", title: "La réconciliation", client: "Pub animée · Sista Place", tags: ["3D", "20 s"] },
   ],
   ads: [
     { file: "yumicha-matcha", title: "Le rituel matcha", client: "Yumicha",        tags: ["Pub produit", "29 s"], wide: true },
